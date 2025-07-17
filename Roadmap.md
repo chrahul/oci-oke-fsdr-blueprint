@@ -3,7 +3,7 @@
 
 ### PHASE 1: Lab Setup Roadmap
 
-Here's the structured breakdown I suggest:
+
 
 ---
 
