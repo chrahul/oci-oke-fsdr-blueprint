@@ -1,4 +1,4 @@
-# oci-oke-fsdr-blueprint
+# BLUE-GREEN setup of OKE
 oci-oke-fsdr-blueprint 
 
 ---
