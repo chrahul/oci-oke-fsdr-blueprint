@@ -3,7 +3,6 @@ oci-oke-fsdr-blueprint
 
 ---
 
-````markdown
 # OCI OKE FSDR Blueprint
 
 > **A Complete Technical Guide to Deploying a Microservice Application on Oracle Kubernetes Engine (OKE) with Block Volume, Protected by Full Stack Disaster Recovery (FSDR).**
@@ -30,7 +29,38 @@ This project provides a **blueprint**, not just a sample — combining **Kuberne
 
 ##  Solution Architecture
 
-![OKE + FSDR Architecture Diagram](docs/architecture-diagram.png) <!-- Add  diagram later -->
+                    ┌────────────────────────────┐
+                    │     OCI DNS / Load Balancer│
+                    └────────────┬───────────────┘
+                                 │
+                   ┌────────────▼─────────────┐
+                   │    OCI Full Stack DR     │
+                   │   (Orchestration Layer)  │
+                   └────┬────────────┬────────┘
+                        │            │
+        ┌───────────────▼───┐   ┌────▼────────────────┐
+        │   PRIMARY REGION │   │    DR (SECONDARY)    │
+        └──────────────────┘   └──────────────────────┘
+
+        ┌────────────────────┐   ┌────────────────────┐
+        │ OKE Cluster        │   │ OKE Cluster (DR)   │
+        │ - Stateful App     │   │ - Standby App      │
+        │ - PV via CSI       │   │ - PV via CSI       │
+        └────────┬───────────┘   └────────┬───────────┘
+                 │                        │
+        ┌────────▼────────┐       ┌───────▼────────────┐
+        │ Block Volume    │◄──────┤ Block Volume (replica)
+        │ (Storage)       │       │                    │
+        └─────────────────┘       └────────────────────┘
+
+        ┌────────────────────┐   ┌────────────────────┐
+        │ OCI Vault / Secrets│   │ OCI Vault (DR)     │
+        └────────────────────┘   └────────────────────┘
+
+        ┌────────────────────┐   ┌────────────────────┐
+        │ OCI Logging        │   │ OCI Logging (DR)    │
+        └────────────────────┘   └────────────────────┘
+
 
 ---
 
@@ -131,4 +161,3 @@ Email: rahul.chaubey@winfosolutions.com
 ---
 
 
-```
