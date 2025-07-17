@@ -151,12 +151,12 @@ This is a WIP (Work in Progress) research project. Contributions, issues, or ide
 
 **Rahul Chaubey**
 Cloud Strategy | Winfo Solutions
-LinkedIn: [linkedin.com/in/rahulchaubey](https://linkedin.com/in/rahulchaubey)
+LinkedIn: https://www.linkedin.com/in/chaubeyrahul/
 Email: rahul.chaubey@winfosolutions.com
 
 ---
 
-```
+
 
 ---
 
